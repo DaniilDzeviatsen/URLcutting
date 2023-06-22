@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class UrLcuttingApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(UrLcuttingApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(UrLcuttingApplication.class, args);
+    }
 
 }
