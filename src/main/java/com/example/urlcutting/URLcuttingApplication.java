@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-
+@ConfigurationPropertiesScan
 public class URLcuttingApplication {
 
     public static void main(String[] args) {
