@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 @Repository
 @RequiredArgsConstructor
@@ -37,11 +40,10 @@ public class UrlJdbcRepositoryImpl implements UrlJdbcRepository {
     }
 
 
-    /* private Link mapToLink(ResultSet resultSet) throws SQLException {
+    private Link mapToLink(ResultSet resultSet) throws SQLException {
         return new Link(
                 resultSet.getString("initialUrl"),
-                resultSet.getLong("id"),
-                resultSet.getString("shortUrl")
+                resultSet.getLong("id")
         );
-    }*/
+    }
 }

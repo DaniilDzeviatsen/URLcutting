@@ -9,5 +9,5 @@ import lombok.Value;
 public class Link {
     String initialUrl;
     long id;
-    String shortUrl;
+
 }
