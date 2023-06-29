@@ -4,6 +4,6 @@ public interface UrlJdbcRepository {
 
     boolean ifShortenedUrlExists(String initialUrl);
 
-    void addNewLink (String initialUrl, String shortUrl);
+    void addNewLink (String initialUrl);
 
 }

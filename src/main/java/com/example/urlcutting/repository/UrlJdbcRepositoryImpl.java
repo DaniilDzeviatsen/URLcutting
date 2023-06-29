@@ -31,11 +31,11 @@ public class UrlJdbcRepositoryImpl implements UrlJdbcRepository {
     }
 
     @Override
-    public void addNewLink(String initialUrl, String shortUrl) {
+    public void addNewLink(String initialUrl) {
         jdbcOperations.update("""
-                insert into link (full_url, short_url)
+                insert into link (full_url)
                 values (? ?)
-                """, initialUrl, shortUrl
+                """, initialUrl
         );
     }
 
