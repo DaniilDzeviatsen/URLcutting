@@ -10,7 +10,7 @@ import java.net.URL;
 
 @Value
 public class Link {
-    URL initialUrl;
+    URI initialUrl;
     long id;
 
 }
