@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ApplicationContext;
 
+import java.net.URI;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -21,5 +22,6 @@ public class URLcuttingApplication {
         Optional<Link> link=urlService.findFullUrlByShort(3);
         System.out.println(link.get().getInitialUrl().getScheme());
         System.out.println(link.get().getInitialUrl().getHost());
+        System.out.println(urlService.findShortUrlByFull(URI.create("https://translate.google.by/")));
     }
 }

@@ -8,10 +8,10 @@ import java.util.Optional;
 
 public interface UrlJdbcRepository {
 
-   Optional<Link> findById(long id);
+    Optional<Link> getShortByFullUrl(URI fullUrl);
 
-    Optional<Link> getShortByFullUrl(String fullUrl);
+    Optional<Link> findById(long id);
 
 
-    Link addNewLink(URI initialUrl);
+    Link addNewLink(URI fullUrl);
 }

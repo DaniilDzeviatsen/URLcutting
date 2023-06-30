@@ -21,9 +21,9 @@ public class UrlServiceImpl implements UrlService {
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
     public Optional<Link> findFullUrlByShort(long id) {
-        if (isUrlLegitimate(urlJdbcRepository.findById(id).get().getInitialUrl())){
+        if (isUrlLegitimate(urlJdbcRepository.findById(id).get().getInitialUrl())) {
             return urlJdbcRepository.findById(id);
-        }else return Optional.empty();
+        } else return Optional.empty();
     }
 
     private boolean isUrlLegitimate(URI fullUrl) {

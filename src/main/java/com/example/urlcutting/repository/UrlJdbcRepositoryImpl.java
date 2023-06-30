@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.net.URI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -20,7 +19,7 @@ public class UrlJdbcRepositoryImpl implements UrlJdbcRepository {
     private final NamedParameterJdbcOperations jdbcOperations;
 
     @Override
-    public Optional<Link> getShortByFullUrl(String fullUrl) {
+    public Optional<Link> getShortByFullUrl(URI fullUrl) {
         String sql = """
                 select id
                 from link
