@@ -13,7 +13,7 @@ public class URLcuttingApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(URLcuttingApplication.class, args);
         UrlJdbcRepository urlJdbcRepository = context.getBean(UrlJdbcRepository.class);
-       urlJdbcRepository.addNewLink("wefwed");
+       //urlJdbcRepository.addNewLink("wefwed");
        // System.out.println(urlJdbcRepository.findAll());
 
     }
