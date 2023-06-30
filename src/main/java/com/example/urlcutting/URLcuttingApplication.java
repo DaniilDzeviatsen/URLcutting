@@ -22,6 +22,6 @@ public class URLcuttingApplication {
         Optional<Link> link=urlService.findFullUrlByShort(3);
         System.out.println(link.get().getInitialUrl().getScheme());
         System.out.println(link.get().getInitialUrl().getHost());
-        System.out.println(urlService.findShortUrlByFull(URI.create("https://translate.google.by/")));
+
     }
 }
