@@ -4,14 +4,13 @@ import com.example.urlcutting.models.Link;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.net.URI;
-import java.util.Optional;
 
 public interface UrlService {
 
 
+    @Transactional
+    Link findFullUrlByShort(long id);
 
     @Transactional
-    Optional<Link> findFullUrlByShort(long id);
-
-
+    Link addLink(URI fullUrl);
 }

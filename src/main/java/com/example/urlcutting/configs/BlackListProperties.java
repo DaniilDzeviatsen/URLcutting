@@ -7,11 +7,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 import java.util.List;
+import java.util.Set;
 
 @ConfigurationProperties(prefix = "black")
 @Getter
 @AllArgsConstructor
 @ConfigurationPropertiesScan
 public class BlackListProperties {
-   private List<String> blackList;
+   private Set<String> blackList;
 }
