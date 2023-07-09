@@ -17,11 +17,11 @@ public class URLcuttingApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(URLcuttingApplication.class, args);
-        UrlJdbcRepository urlJdbcRepository = context.getBean(UrlJdbcRepository.class);
+       /* UrlJdbcRepository urlJdbcRepository = context.getBean(UrlJdbcRepository.class);
         UrlService urlService=context.getBean(UrlService.class);
         Optional<Link> link=urlService.findFullUrlByShort(3);
         System.out.println(link.get().getInitialUrl().getScheme());
-        System.out.println(link.get().getInitialUrl().getHost());
+        System.out.println(link.get().getInitialUrl().getHost());*/
 
     }
 }
