@@ -1,0 +1,35 @@
+<!--/*@thymesVar id="shortLink" type="com.example.urlcutting.models.Link"*/-->
+<!--/*@thymesVar id="baseShortLinkUrl" type="java.lang.String"*/-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UrlCutter</title>
+</head>
+<body>
+<h2>So as your link turned into something short and readable follow the instructions</h2>
+<h3>Enter full URL</h3>
+<section>
+    <form method="post" action="/add-link" enctype="application/x-www-form-urlencoded"
+         th:action="@{/add-link}">
+    <label for="cut-url"> Adress </label>
+    <input type="text" name="url" id="cut-url">
+    <button type="submit"> Shorten </button>
+    </form>
+</section>
+<section th:if="${shortLink != null}">
+    <h2>Shortened links:</h2>
+    <a href="https://translate.google.by/"
+       th:href="${shortLink.getInitialUrl()}"
+       th:text="${shortLink.getInitialUrl()}">
+        https://translate.google.by/
+    </a>
+    <span th:text="${baseShortLinkUrl + shortLink.getId()}">
+        http://localhost:8080/to/3
+    </span>
+</section>
+</body>
+</html>
