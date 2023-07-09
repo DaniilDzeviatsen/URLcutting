@@ -22,7 +22,7 @@ public class ErrorController {
     }
 
     @ExceptionHandler(Exception.class)
-    public ModelAndView onException(Exception e){
+    public ModelAndView onException(Exception e) {
         log.error("Unknown error:", e);
         return new ModelAndView("error", Map.of(
                 "errorMessage", "Unknown error"

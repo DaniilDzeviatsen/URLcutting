@@ -2,11 +2,9 @@ package com.example.urlcutting.configs;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
-import java.util.List;
 import java.util.Set;
 
 @ConfigurationProperties(prefix = "black")
@@ -14,5 +12,5 @@ import java.util.Set;
 @AllArgsConstructor
 @ConfigurationPropertiesScan
 public class BlackListProperties {
-   private Set<String> blackList;
+    private Set<String> blackList;
 }

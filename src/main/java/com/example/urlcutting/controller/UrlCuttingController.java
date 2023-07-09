@@ -7,8 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -25,8 +27,8 @@ public class UrlCuttingController {
     private final UrlService urlService;
 
     @GetMapping("/to/{id}")
-    public ResponseEntity <?> redirect (@PathVariable long id){
-        Link link=urlService.findFullUrlByShort(id);
+    public ResponseEntity<?> redirect(@PathVariable long id) {
+        Link link = urlService.findFullUrlByShort(id);
         return ResponseEntity.status(HttpStatus.FOUND)
                 .location(link.getInitialUrl())
                 .build();
@@ -35,27 +37,28 @@ public class UrlCuttingController {
 
     @PostMapping("/add-link")
     public ResponseEntity<?> addLink(@RequestParam URI url,
-                                     UriComponentsBuilder uriComponentsBuilder){
-Link link=urlService.addLink(url);
-URI redirectUrl=uriComponentsBuilder
-        .path("/")
-        .queryParam("id", link.getId())
-        .build()
-        .toUri();
-return ResponseEntity.status(HttpStatus.FOUND)
-        .location(redirectUrl)
-        .build();
+                                     UriComponentsBuilder uriComponentsBuilder) {
+        Link link = urlService.addLink(url);
+        URI redirectUrl = uriComponentsBuilder
+                .path("/")
+                .queryParam("id", link.getId())
+                .build()
+                .toUri();
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(redirectUrl)
+                .build();
     }
+
     @GetMapping("/")
-    public ModelAndView getHomePage (@RequestParam (required = false) Long id,
-                                     UriComponentsBuilder uriComponentsBuilder){
-        Link shortenedLink = id==null? null:urlService.findFullUrlByShort(id);
+    public ModelAndView getHomePage(@RequestParam(required = false) Long id,
+                                    UriComponentsBuilder uriComponentsBuilder) {
+        Link shortenedLink = id == null ? null : urlService.findFullUrlByShort(id);
         String baseShortLinkUrl = uriComponentsBuilder
                 .path("/to/")
                 .build()
                 .toUriString();
 
-        Map <String, Object> model =new HashMap<>();
+        Map<String, Object> model = new HashMap<>();
         model.put("shortLink", shortenedLink);
         model.put("baseShortLinkUrl", baseShortLinkUrl);
 
